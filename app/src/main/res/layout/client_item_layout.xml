@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/imageFTB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:onClick="three_three_three"
+            app:backgroundTint="@color/white"
+            app:fabCustomSize="60dp"
+            app:maxImageSize="45dp"
+            app:srcCompat="@drawable/ceo"
+            app:tint="@null"
+            card_view:ignore="OnClick" />
+
+
+
+        <TextView
+            android:id="@+id/nameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="ঢাকা জেলা"
+            android:textColor="@color/grey_80"
+            android:textSize="@dimen/flotingText_size" />
+
+    </LinearLayout>
+
+</LinearLayout>
