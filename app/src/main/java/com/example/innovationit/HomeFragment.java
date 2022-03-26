@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
@@ -42,7 +43,8 @@ public class HomeFragment extends Fragment {
     private Context context;
 
     private List<Product> sliderItems;
-    private ViewPager2 viewPager2;
+    ProductAdapter productAdapter;
+    private RecyclerView ourproductRV;
 
 
 
@@ -93,35 +95,45 @@ public class HomeFragment extends Fragment {
         //----------slider end-----------
 
 
-        //----------Pagerindicator start-----------
-        viewPager2 = view.findViewById(R.id.pager);
+        //----------recycler start-----------
+        ourproductRV = view.findViewById(R.id.ourproductRV);
         sliderItems = new ArrayList<>();
-        ProductAdapter  productAdapter = new ProductAdapter(sliderItems,viewPager2);
+        productAdapter = new ProductAdapter(sliderItems,context);
+        LinearLayoutManager layoutManager1
+                = new LinearLayoutManager(new MainActivity(), LinearLayoutManager.HORIZONTAL, false);
+        ourproductRV.setLayoutManager(layoutManager1);
+        //hotlineRV.setLayoutManager(new GridLayoutManager(this,3));
+        ourproductRV.setAdapter(productAdapter);
 
-        int point = sliderItems.size() / 2;
-        viewPager2.setCurrentItem(point);
-
-        viewPager2.setAdapter(productAdapter);
-
-        ScrollingPagerIndicator pagersIndicator = view.findViewById(R.id.pagerIndicator);
-        pagersIndicator.attachToPager(viewPager2);
-
-        viewPager2.setClipToPadding(false);
-        viewPager2.setClipChildren(false);
-        viewPager2.setOffscreenPageLimit(3);
-        viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
-
-        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
-        compositePageTransformer.addTransformer(new MarginPageTransformer(10));
-
-        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                float r = 1 - Math.abs(position);
-                page.setScaleY(0.85f + r * 0.15f);
-            }
-        });
-        viewPager2.setPageTransformer(compositePageTransformer);
+//        //----------Pagerindicator start-----------
+//        viewPager2 = view.findViewById(R.id.pager);
+//        sliderItems = new ArrayList<>();
+//        ProductAdapter  productAdapter = new ProductAdapter(sliderItems,viewPager2);
+//
+//        int point = sliderItems.size() / 2;
+//        viewPager2.setCurrentItem(point);
+//
+//        viewPager2.setAdapter(productAdapter);
+//
+//        ScrollingPagerIndicator pagersIndicator = view.findViewById(R.id.pagerIndicator);
+//        pagersIndicator.attachToPager(viewPager2);
+//
+//        viewPager2.setClipToPadding(false);
+//        viewPager2.setClipChildren(false);
+//        viewPager2.setOffscreenPageLimit(3);
+//        viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+//
+//        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
+//        compositePageTransformer.addTransformer(new MarginPageTransformer(10));
+//
+//        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
+//            @Override
+//            public void transformPage(@NonNull View page, float position) {
+//                float r = 1 - Math.abs(position);
+//                page.setScaleY(0.85f + r * 0.15f);
+//            }
+//        });
+//        viewPager2.setPageTransformer(compositePageTransformer);
 
         getAllProduct();
         //----------Pagerindicator end-----------
@@ -131,18 +143,19 @@ public class HomeFragment extends Fragment {
 
     private void getAllProduct() {
 
-        sliderItems.add(new Product("স্কুল ম্যানেজমেন্ট সফটওয়্যার",""+getString(R.string.school_soft),R.drawable.school));
-        sliderItems.add(new Product("ইউনিয়ন ম্যানেজমেন্ট সফটওয়্যার",""+getString(R.string.union_soft),R.drawable.digital_union));
-        sliderItems.add(new Product("পরীক্ষা ম্যানেজমেন্ট সফটওয়্যার",""+getString(R.string.online_exam),R.drawable.online_exam_icon));
-        sliderItems.add(new Product("জেলা ম্যানেজমেন্ট সফটওয়্যার",""+getString(R.string.your_deputy),R.drawable.your_deputy));
-        sliderItems.add(new Product("পয়েন্ট অফ সেল সফটওয়্যার",""+getString(R.string.hisab365),R.drawable.hisabd));
-        sliderItems.add(new Product("ব্রিক ফিল্ড ম্যানেজমেন্ট সফটওয়্যার",""+getString(R.string.amarbrick_details),R.drawable.amar_brick));
-        sliderItems.add(new Product("পৌরসভা ম্যানেজমেন্ট সফটওয়্যার",""+getString(R.string.pouro_soft),R.drawable.digital_pouros));
-        sliderItems.add(new Product("ই-কমার্স ম্যানেজমেন্ট সফটওয়্যার",""+getString(R.string.gobazar_details),R.drawable.gobazaar_icon));
-        sliderItems.add(new Product("অনলাইনে পশু ক্রয় বিক্রয়ের সফটওয়্যার",""+getString(R.string.posurhat_details),R.drawable.posurhat));
-        sliderItems.add(new Product("গাড়ী ম্যানেজমেন্ট সফটওয়্যার এন্ড মোবাইল অ্যাপ্লিকেশন",""+getString(R.string.vehicle_details),R.drawable.vehicalelogo));
-        sliderItems.add(new Product("ফেনীর মেয়র মোবাইল অ্যাপ্লিকেশন",""+getString(R.string.feni_pouro_soft),R.drawable.feni_logo));
-        sliderItems.add(new Product("সিরাজগঞ্জের মেয়র মোবাইল অ্যাপ্লিকেশন",""+getString(R.string.sirajgonj_pouro_soft),R.drawable.sirajgonjlogo));
+        sliderItems.add(new Product("স্কুল ম্যানেজমেন্ট সফটওয়্যার",R.drawable.school));
+        sliderItems.add(new Product("ইউনিয়ন ম্যানেজমেন্ট সফটওয়্যার",R.drawable.digital_union));
+        sliderItems.add(new Product("পরীক্ষা ম্যানেজমেন্ট সফটওয়্যার",R.drawable.online_exam_icon));
+        sliderItems.add(new Product("জেলা ম্যানেজমেন্ট সফটওয়্যার",R.drawable.your_deputy));
+        sliderItems.add(new Product("পয়েন্ট অফ সেল সফটওয়্যার",R.drawable.hisabd));
+        sliderItems.add(new Product("ব্রিক ফিল্ড ম্যানেজমেন্ট সফটওয়্যার",R.drawable.amar_brick));
+        sliderItems.add(new Product("পৌরসভা ম্যানেজমেন্ট সফটওয়্যার",R.drawable.digital_pouros));
+        sliderItems.add(new Product("ই-কমার্স ম্যানেজমেন্ট সফটওয়্যার",R.drawable.gobazaar_icon));
+        sliderItems.add(new Product("অনলাইনে পশু ক্রয় বিক্রয়ের সফটওয়্যার",R.drawable.posurhat));
+        sliderItems.add(new Product("গাড়ী ম্যানেজমেন্ট সফটওয়্যার এন্ড মোবাইল অ্যাপ্লিকেশন",R.drawable.vehicalelogo));
+        sliderItems.add(new Product("ফেনীর মেয়র মোবাইল অ্যাপ্লিকেশন",R.drawable.feni_logo));
+        sliderItems.add(new Product("সিরাজগঞ্জের মেয়র মোবাইল অ্যাপ্লিকেশন",R.drawable.sirajgonjlogo));
+        //sliderItems.add(new Product("সিরাজগঞ্জের মেয়র মোবাইল অ্যাপ্লিকেশন",""+getString(R.string.sirajgonj_pouro_soft),R.drawable.sirajgonjlogo));
 
     }
 

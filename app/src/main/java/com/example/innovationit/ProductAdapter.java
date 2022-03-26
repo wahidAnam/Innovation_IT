@@ -1,5 +1,6 @@
 package com.example.innovationit;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +19,12 @@ import java.util.List;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.SliderView> {
 
     private List<Product> sliderItems;
-    private ViewPager2 viewPager2;
+    private Context context;
 
 
-    public ProductAdapter(List<Product> sliderItems, ViewPager2 viewPager2) {
+    public ProductAdapter(List<Product> sliderItems, Context context) {
         this.sliderItems = sliderItems;
-        this.viewPager2 = viewPager2;
+        this.context = context;
     }
 
     @NonNull
@@ -39,7 +40,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.SliderVi
     public void onBindViewHolder(@NonNull SliderView holder, int position) {
 
         Product product = sliderItems.get(position);
-        holder.nameID.setText(product.getNameID());
         holder.detailsID.setText(product.getDetailsID());
         holder.imageID.setImageResource(product.getImageID());
 
@@ -53,12 +53,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.SliderVi
     public class SliderView extends RecyclerView.ViewHolder {
 
         private ImageView imageID;
-        private TextView nameID,detailsID;
+        private TextView detailsID;
         public SliderView(@NonNull View itemView) {
             super(itemView);
 
             imageID = itemView.findViewById(R.id.imageID);
-            nameID = itemView.findViewById(R.id.nameID);
             detailsID = itemView.findViewById(R.id.detailsID);
         }
     }

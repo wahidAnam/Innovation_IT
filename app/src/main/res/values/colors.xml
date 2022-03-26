@@ -7,6 +7,7 @@
     <color name="white">#fff</color>
     <color name="gray">#40F6ECEC</color>
     <color name="status_bar_color">#FD6802</color>
+    <color name="title_color">#99FD6802</color>
 
     <color name="search_icon_color">#40FFFFFF</color>
 
