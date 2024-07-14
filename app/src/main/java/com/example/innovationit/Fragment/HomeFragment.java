@@ -1,26 +1,31 @@
-package com.example.innovationit;
+package com.example.innovationit.Fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Point;
+import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.CompositePageTransformer;
-import androidx.viewpager2.widget.MarginPageTransformer;
-import androidx.viewpager2.widget.ViewPager2;
 
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
+import com.example.innovationit.Adapter.ClientAdapter;
+import com.example.innovationit.Adapter.ProductAdapter;
+import com.example.innovationit.Adapter.SliderAdapter;
+import com.example.innovationit.user_Activity.CeoMsgActivity;
+import com.example.innovationit.user_Activity.MainActivity;
+import com.example.innovationit.R;
 import com.example.innovationit.model.Client;
 import com.example.innovationit.model.Product;
+import com.example.innovationit.user_Activity.OurTeamActivtity;
+import com.example.innovationit.user_Activity.SupportActivity;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -46,6 +51,8 @@ public class HomeFragment extends Fragment {
     ProductAdapter productAdapter;
     private RecyclerView ourproductRV;
 
+    private TextView ourTeamLL,supportLL,ceomsgLL;
+
 
 
     public HomeFragment() {
@@ -53,9 +60,40 @@ public class HomeFragment extends Fragment {
 
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_home, container, false);
+
+
+        ourTeamLL = view.findViewById(R.id.ourTeamLL);
+        supportLL = view.findViewById(R.id.supportLL);
+        ceomsgLL = view.findViewById(R.id.ceomsgLL);
+
+
+
+        ourTeamLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), OurTeamActivtity.class));
+            }
+        });
+
+        supportLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), SupportActivity.class));
+            }
+        });
+
+        ceomsgLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), CeoMsgActivity.class));
+            }
+        });
+
+
 
 
 
@@ -105,38 +143,8 @@ public class HomeFragment extends Fragment {
         //hotlineRV.setLayoutManager(new GridLayoutManager(this,3));
         ourproductRV.setAdapter(productAdapter);
 
-//        //----------Pagerindicator start-----------
-//        viewPager2 = view.findViewById(R.id.pager);
-//        sliderItems = new ArrayList<>();
-//        ProductAdapter  productAdapter = new ProductAdapter(sliderItems,viewPager2);
-//
-//        int point = sliderItems.size() / 2;
-//        viewPager2.setCurrentItem(point);
-//
-//        viewPager2.setAdapter(productAdapter);
-//
-//        ScrollingPagerIndicator pagersIndicator = view.findViewById(R.id.pagerIndicator);
-//        pagersIndicator.attachToPager(viewPager2);
-//
-//        viewPager2.setClipToPadding(false);
-//        viewPager2.setClipChildren(false);
-//        viewPager2.setOffscreenPageLimit(3);
-//        viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
-//
-//        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
-//        compositePageTransformer.addTransformer(new MarginPageTransformer(10));
-//
-//        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
-//            @Override
-//            public void transformPage(@NonNull View page, float position) {
-//                float r = 1 - Math.abs(position);
-//                page.setScaleY(0.85f + r * 0.15f);
-//            }
-//        });
-//        viewPager2.setPageTransformer(compositePageTransformer);
 
         getAllProduct();
-        //----------Pagerindicator end-----------
 
         return view;
     }

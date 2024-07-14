@@ -3,12 +3,744 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PortfolioFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.PortfolioFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginBottom="5dp"
+            android:background="@color/status_bar_color_iit"
+            android:elevation="3dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:visibility="gone"
+                    app:tint="@color/white"
+                    android:id="@+id/backBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:onClick="backBtn"
+                    android:background="?actionBarItemBackground"
+                    android:src="@drawable/ic_baseline_home_24" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/backBtn"
+                    android:gravity="center"
+                    android:layout_marginStart="24dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="50dp"
+                        android:text="আমাদের পোর্টফোলিও"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+
+                    <ImageView
+                        android:src="@drawable/digital_school"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"/>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cyber_security_bg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginBottom="30dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <TextView
+                                android:id="@+id/cyberTileTV"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="পুস্তক"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ডিজিটাল স্কুল ম্যানেজমেন্ট সফটওয়্যার"
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+
+                    <ImageView
+                        android:src="@drawable/digital_union1"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"/>
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cyber_security_bg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginBottom="30dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ডিজিটাল ইউনিয়ন"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ডিজিটাল ইউনিয়ন ম্যানেজমেন্ট সফটওয়্যার"
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+
+                    <ImageView
+                        android:src="@drawable/online_exam"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"/>
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cyber_security_bg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginBottom="30dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="অনলাইন পরীক্ষা"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ডিজিটাল অনলাইন পরীক্ষা ম্যানেজমেন্ট সফটওয়্যার"
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+
+                    <ImageView
+                        android:src="@drawable/hisam_365"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"/>
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cyber_security_bg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginBottom="30dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="হিসাব৩৬৫"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="পয়েন্ট অপ সেল ম্যানেজমেন্ট সফটওয়্যার"
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+
+                    <ImageView
+                        android:src="@drawable/amar_brick1"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"/>
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cyber_security_bg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginBottom="30dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="আমারব্রিক"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ব্রিক পিল্ড ম্যানেজমেন্ট সফটওয়্যার"
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+
+                    <ImageView
+                        android:src="@drawable/purosoba"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"/>
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cyber_security_bg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginBottom="30dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ডিজিটাল পৌরসভা"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ডিজিটাল পৌরসভা ম্যানেজমেন্ট সফটওয়্যার"
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+
+                    <ImageView
+                        android:src="@drawable/gobazaar"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"/>
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cyber_security_bg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginBottom="30dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ই-কমার্স"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ই-কমার্স এন্ড ম্যানেজমেন্ট সফটওয়্যার"
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+
+                    <ImageView
+                        android:src="@drawable/animalapps"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"/>
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cyber_security_bg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginBottom="30dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="অনলাইন পশুর হাট,ফেনী"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="অনলাইনে পশু ক্রয়  বিক্রয়ের মোবাইল অ্যাপ্লিকেশন"
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+
+                    <ImageView
+                        android:src="@drawable/somiti"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"/>
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cyber_security_bg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginBottom="30dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="সমিতি ব্যাবস্থাপনা"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="অনলাইনে সমিতির হিসাব নিকাশের সফটওয়্যার"
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+
+                    <ImageView
+                        android:src="@drawable/bazar"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"/>
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cyber_security_bg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginBottom="30dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="বাজার ব্যাবস্থাপনা"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="বাজার ম্যানেজমেন্ট সফটওয়্যার "
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+
+                    <ImageView
+                        android:src="@drawable/vehicleapps"
+                        android:layout_width="match_parent"
+                        android:layout_height="280dp"/>
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cyber_security_bg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginBottom="30dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="গাড়ী"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="গাড়ী ম্যানেজমেন্ট মোবাইল অ্যাপ্লিকেশন"
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+
+                    <ImageView
+                        android:src="@drawable/fenir_mayor"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"/>
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cyber_security_bg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginBottom="30dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ফেনীর মেয়র"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ফেনীর মেয়র মোবাইল অ্যাপ্লিকেশন"
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp">
+
+
+                    <ImageView
+                        android:src="@drawable/sirajgonj_mayor"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"/>
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cyber_security_bg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_marginBottom="30dp"
+                            android:gravity="bottom"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="মেয়র সিরাজগঞ্জ"
+                                android:textColor="@color/white"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="মেয়র সিরাজগঞ্জ ম্যানেজমেন্ট মোবাইল অ্যাপ্লিকেশন"
+                                android:textColor="@color/white"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
 
 </FrameLayout>

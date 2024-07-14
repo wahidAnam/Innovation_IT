@@ -1,4 +1,4 @@
-package com.example.innovationit;
+package com.example.innovationit.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.innovationit.SliderAdapter.SliderViewHolder;
+import com.example.innovationit.R;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
 public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderViewHolder> {

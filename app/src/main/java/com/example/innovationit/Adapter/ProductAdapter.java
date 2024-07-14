@@ -1,4 +1,4 @@
-package com.example.innovationit;
+package com.example.innovationit.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,9 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.innovationit.R;
 import com.example.innovationit.model.Product;
 
 import java.util.List;
