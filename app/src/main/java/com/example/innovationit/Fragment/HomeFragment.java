@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +28,7 @@ import com.example.innovationit.model.Client;
 import com.example.innovationit.model.Product;
 import com.example.innovationit.user_Activity.OurTeamActivtity;
 import com.example.innovationit.user_Activity.SupportActivity;
+import com.example.innovationit.user_Activity.TrainingDashBoard;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -52,7 +55,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView ourproductRV;
 
     private TextView ourTeamLL,supportLL,ceomsgLL;
-
+    private CardView goTraining,goServices;
 
 
     public HomeFragment() {
@@ -69,8 +72,24 @@ public class HomeFragment extends Fragment {
         ourTeamLL = view.findViewById(R.id.ourTeamLL);
         supportLL = view.findViewById(R.id.supportLL);
         ceomsgLL = view.findViewById(R.id.ceomsgLL);
+        goTraining = view.findViewById(R.id.goTraining);
+        goServices = view.findViewById(R.id.goServices);
 
 
+
+        goTraining.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), TrainingDashBoard.class));
+            }
+        });
+
+        goServices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ServicesDashBoard.class));
+            }
+        });
 
         ourTeamLL.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,11 +120,11 @@ public class HomeFragment extends Fragment {
         clientRV = view.findViewById(R.id.ourclientRV);
         clientList = new ArrayList<>();
         clientAdapter = new ClientAdapter(context,clientList);
-        LinearLayoutManager layoutManager
-                = new LinearLayoutManager(new MainActivity(), LinearLayoutManager.HORIZONTAL, false);
+//        LinearLayoutManager layoutManager
+//                = new LinearLayoutManager(new MainActivity(), LinearLayoutManager.HORIZONTAL, false);
+        clientRV.setLayoutManager(new GridLayoutManager(context,4));
+        //clientRV.setLayoutManager(layoutManager);
 
-        clientRV.setLayoutManager(layoutManager);
-        //hotlineRV.setLayoutManager(new GridLayoutManager(this,3));
         clientRV.setAdapter(clientAdapter);
         //----------recycler end-----------
 
@@ -137,10 +156,10 @@ public class HomeFragment extends Fragment {
         ourproductRV = view.findViewById(R.id.ourproductRV);
         sliderItems = new ArrayList<>();
         productAdapter = new ProductAdapter(sliderItems,context);
-        LinearLayoutManager layoutManager1
-                = new LinearLayoutManager(new MainActivity(), LinearLayoutManager.HORIZONTAL, false);
-        ourproductRV.setLayoutManager(layoutManager1);
-        //hotlineRV.setLayoutManager(new GridLayoutManager(this,3));
+//        LinearLayoutManager layoutManager1
+//                = new LinearLayoutManager(new MainActivity(), LinearLayoutManager.HORIZONTAL, false);
+//        ourproductRV.setLayoutManager(layoutManager1);
+        ourproductRV.setLayoutManager(new GridLayoutManager(context,3));
         ourproductRV.setAdapter(productAdapter);
 
 
@@ -152,10 +171,10 @@ public class HomeFragment extends Fragment {
     private void getAllProduct() {
 
         sliderItems.add(new Product("স্কুল ম্যানেজমেন্ট সফটওয়্যার",R.drawable.school));
-        sliderItems.add(new Product("ইউনিয়ন ম্যানেজমেন্ট সফটওয়্যার",R.drawable.digital_union));
-        sliderItems.add(new Product("পরীক্ষা ম্যানেজমেন্ট সফটওয়্যার",R.drawable.online_exam_icon));
         sliderItems.add(new Product("জেলা ম্যানেজমেন্ট সফটওয়্যার",R.drawable.your_deputy));
         sliderItems.add(new Product("পয়েন্ট অফ সেল সফটওয়্যার",R.drawable.hisabd));
+        sliderItems.add(new Product("ইউনিয়ন ম্যানেজমেন্ট সফটওয়্যার",R.drawable.digital_union));
+        sliderItems.add(new Product("পরীক্ষা ম্যানেজমেন্ট সফটওয়্যার",R.drawable.online_exam_icon));
         sliderItems.add(new Product("ব্রিক ফিল্ড ম্যানেজমেন্ট সফটওয়্যার",R.drawable.amar_brick));
         sliderItems.add(new Product("পৌরসভা ম্যানেজমেন্ট সফটওয়্যার",R.drawable.digital_pouros));
         sliderItems.add(new Product("ই-কমার্স ম্যানেজমেন্ট সফটওয়্যার",R.drawable.gobazaar_icon));

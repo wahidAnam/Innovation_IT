@@ -113,4 +113,11 @@
 
     <color name="dotNormal">#707dc6</color>
     <color name="dotHighlight">#f43d7b</color>
+
+
+    <color name="table_color_1">#C1E19D</color>
+    <color name="table_color_2">#FBDBAB</color>
+    <color name="table_color_3">#B5DCFB</color>
+    <color name="table_color_4">#FFBEC4</color>
+    <color name="table_color_5">#AEB6EC</color>
 </resources>
